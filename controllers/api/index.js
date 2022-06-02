@@ -5,8 +5,8 @@ const bookRoutes = require('./book-routes')
 
 
 router.use('/users', userRoutes);
-router.use(movieRoutes);
-router.use(bookRoutes);
+router.use('/movies', movieRoutes);
+router.use('/books', bookRoutes);
 
 
 module.exports = router;
