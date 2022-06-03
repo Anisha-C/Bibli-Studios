@@ -1,33 +1,57 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router()
+const { User } = require("../../models")
+const bcrypt = require("bcrypt")
 
+router.get("/", (req, res) => {})
 
-router.get('/', (req, res) => {
+router.get("/:id", (req, res) => {})
 
-});
+router.post("/", (req, res) => {})
 
-router.get('/:id', (req, res) => {
+router.post("/login", (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email,
+        },
+    }).then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({ message: "No user with that email address!" })
+            return
+        }
 
-});
+        const validPassword = dbUserData.checkPassword(req.body.password)
 
-router.post('/', (req, res) => {
+        if (!validPassword) {
+            res.status(400).json({ message: "Incorrect password!" })
+            return
+        }
 
-});
+        res.json({ user: dbUserData, message: "You are now logged in!" })
+    })
+})
 
-router.post('/login', (req, res) => {
+router.post("/logout", (req, res) => {
+    req.session.destroy(function (err) {
+        // cannot access session here
+        res.redirect("/")
+    })
+})
 
-});
+router.post("/signup", (req, res) => {
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.hashSync(req.body.password, salt)
+    User.create({
+        email: req.body.email,
+        username: req.body.username,
+        password: hash,
+    }).then(function () {
+        // we need to create the route for the redirect after the sign up.
+        res.redirect("/")
+    })
+})
 
-router.post('/logout', (req, res) => {
+router.put("/:id", (req, res) => {})
 
-});
+router.delete("/:id", (req, res) => {})
 
-router.put('/:id', (req, res) => {
-
-});
-
-router.delete('/:id', (req, res) => {
-
-});
-
-module.exports = router;
+module.exports = router

@@ -1,17 +1,13 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { User } = require('../models');
+const router = require("express").Router()
+const sequelize = require("../config/connection")
+const { User } = require("../models")
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
+    
+})
 
-});
+router.get("/login", (req, res) => {})
 
-router.get('/login', (req, res) => {
+router.get("/post/:id", (req, res) => {})
 
-});
-
-router.get('/post/:id', (req, res) => {
-
-});
-
-module.exports = router;
+module.exports = router
