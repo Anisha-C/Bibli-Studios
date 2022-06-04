@@ -11,7 +11,7 @@ const sequelize = require('./config/connection');
 
 const hbs = exphbs.create({});
 
-app.engine('hadlebars', hbs.engine);
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 const sess = {
