@@ -1,11 +1,15 @@
 const router = require('express').Router();
+const { Movie } = require('../../models');
 
 router.get("/movies", (req, res) => {
-    let results = books;
-    if (req.query) {
-      results = filterByQuery(req.query, results);
-    }
-    res.json(results);
+    Movie.findAll()
+    .then(movieData => {
+      res.json(movieData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
   });
 
 router.post("/movies", (req, res) => {
