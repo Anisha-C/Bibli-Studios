@@ -1,9 +1,10 @@
-const User = require('./User');
-const Movie = require('./Movie');
-const MovieUser = require('./MovieUser');
+const User = require("./User")
+const Movie = require("./Movie")
+const MovieUser = require("./MovieUser")
 
 User.belongsToMany(Movie, {
     through: MovieUser,
+
     foreignKey: 'user_id'
 });
 
@@ -21,3 +22,4 @@ MovieUser.belongsTo(Movie, {
 })
 
 module.exports = { User, Movie, MovieUser };
+
