@@ -21,3 +21,7 @@ submitButton.addEventListener("click", event => {
         body: JSON.stringify(loginData),
     }).then(fetch("/dashboard"))
 })
+
+//document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+
+//document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
