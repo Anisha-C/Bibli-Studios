@@ -1,16 +1,16 @@
-const router = require('express').Router();
-const { Movie } = require('../../models');
+const router = require("express").Router()
+const { Movie } = require("../../models")
 
 router.get("/movies", (req, res) => {
     Movie.findAll()
-    .then(movieData => {
-      res.json(movieData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    })
-  });
+        .then(movieData => {
+            res.json(movieData)
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
 
 // get results based on filter
 router.get("/movies/name", (req, res) => {
@@ -72,4 +72,4 @@ router.post("/movies", (req, res) => {
       })
 });
 
-module.exports = router;
+module.exports = router

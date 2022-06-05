@@ -1,16 +1,16 @@
-const router = require('express').Router();
+const router = require("express").Router()
 
 router.get("/books", (req, res) => {
-    let results = books;
+    let results = books
     if (req.query) {
-      results = filterByQuery(req.query, results);
+        results = filterByQuery(req.query, results)
     }
-    res.json(results);
-  });
+    res.json(results)
+})
 
 router.post("/books", (req, res) => {
-    const book = addNewBook(req.body, book);
-    res.json(book);
-});
+    const book = addNewBook(req.body, book)
+    res.json(book)
+})
 
-module.exports = router;
+module.exports = router
