@@ -2,16 +2,16 @@ const router = require("express").Router()
 const { Movie, MovieUser } = require("../../models")
 const checkLoggedIn = require('../../utils/checkLoggedIn');
 
-router.get("/", (req, res) => {
-    Movie.findAll()
-        .then(movieData => {
-            res.json(movieData)
-        })
-        .catch(err => {
-            console.log(err)
-            res.status(500).json(err)
-        })
-})
+// router.get("/", (req, res) => {
+//     Movie.findAll()
+//         .then(movieData => {
+//             res.json(movieData)
+//         })
+//         .catch(err => {
+//             console.log(err)
+//             res.status(500).json(err)
+//         })
+// })
 
 // get results based on filter
 router.get("/:name", (req, res) => {
