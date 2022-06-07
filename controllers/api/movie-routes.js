@@ -33,7 +33,7 @@ router.get("/movies/name", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
-            year: req.query.year
+            year: req.params.year
         }
     })
     .then(movieData => {
