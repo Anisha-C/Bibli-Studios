@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { User } = require("../../models")
+const { User, Movie } = require("../../models")
 const bcrypt = require("bcrypt")
 
 router.get("/", (req, res) => {})
@@ -33,17 +33,19 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {})
 
 router.post("/login", (req, res) => {
+    
     User.findOne({
         where: {
-            username: req.body.userName,
+            email: req.body.email,
         },
     }).then(dbUserData => {
         if (!dbUserData) {
             res.status(400).json({ message: "No user with that username!" })
             return
         }
+        
 
-        const validPassword = dbUserData.checkPassword(req.body.password)
+        const validPassword = bcrypt.compareSync(req.body.password, dbUserData.password);
 
         if (!validPassword) {
             res.status(400).json({ message: "Incorrect password!" })
@@ -62,12 +64,11 @@ router.get("/logout", (req, res) => {
 })
 
 router.post("/signup", (req, res) => {
-    const salt = bcrypt.genSaltSync(10)
-    const hash = bcrypt.hashSync(req.body.password, salt)
+
     User.create({
         email: req.body.email,
         username: req.body.username,
-        password: hash,
+        password: req.body.password,
     }).then(function () {
         // we need to create the route for the redirect after the sign up.
         res.redirect("/")
