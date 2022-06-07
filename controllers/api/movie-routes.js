@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const { Movie } = require("../../models")
 
-router.get("/movies", (req, res) => {
+router.get("/", (req, res) => {
     Movie.findAll()
         .then(movieData => {
             res.json(movieData)
@@ -13,11 +13,11 @@ router.get("/movies", (req, res) => {
 })
 
 // get results based on filter
-router.get("/movies/name", (req, res) => {
+router.get("/:name", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
-            name : req.query.name
+            name : req.params.name
         }
     })
     .then(movieData => {
@@ -29,7 +29,7 @@ router.get("/movies/name", (req, res) => {
     })
   });
 
-  router.get("/movies/year", (req, res) => {
+  router.get("/:year", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
@@ -45,11 +45,11 @@ router.get("/movies/name", (req, res) => {
     })
   });
 
-  router.get("/movies/genre", (req, res) => {
+  router.get("/:genre", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
-            genre: req.query.genre
+            genre: req.params.genre
         }
     })
     .then(movieData => {
