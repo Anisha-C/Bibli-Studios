@@ -4,12 +4,12 @@ const { User, Movie } = require('../models');
 const checkLoggedIn = require('../utils/checkLoggedIn');
 
 router.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
     
@@ -26,7 +26,7 @@ router.get('/dashboard', checkLoggedIn, (req, res) => {
     }).then(movieQuery => {
         console.log(movieQuery);
         const movies = movieQuery.map(movie => movie.get({ plain: true }));
-        res.render('dashboard');
+        res.render('dashboard', { movies, loggedIn: req.session.loggedIn });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);

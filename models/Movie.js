@@ -18,9 +18,9 @@ Movie.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        genre: {
+        link: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
     },
     {
