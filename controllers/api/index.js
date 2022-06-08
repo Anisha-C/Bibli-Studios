@@ -7,4 +7,4 @@ router.use("/users", userRoutes)
 router.use("/movies", movieRoutes)
 router.use("/books", bookRoutes)
 
-module.exports = router
+module.exports = router;

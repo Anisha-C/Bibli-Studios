@@ -14,11 +14,11 @@ router.get("/", (req, res) => {
 })
 
 // get results based on filter
-router.get("/:name", (req, res) => {
+router.get("/name", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
-            name : req.params.name
+            name : req.body.name
         }
     })
     .then(movieData => {
@@ -30,7 +30,7 @@ router.get("/:name", (req, res) => {
     })
   });
 
-  router.get("/:year", (req, res) => {
+  router.get("/year/:year", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
@@ -46,7 +46,7 @@ router.get("/:name", (req, res) => {
     })
   });
 
-  router.get("/:genre", (req, res) => {
+  router.get("/genre/:genre", (req, res) => {
     Movie.findAll({
         attributes: ['name', 'year', 'genre'],
         where: {
@@ -62,7 +62,7 @@ router.get("/:name", (req, res) => {
     })
   });
 
-router.post("/movies", checkLoggedIn, (req, res) => {
+router.post("/", checkLoggedIn, (req, res) => {
     Movie.create(req.body)
     .then(movieData => {
         res.json(movieData);
@@ -85,4 +85,4 @@ router.put('/like', checkLoggedIn, (req, res) => {
   })
 })
 
-module.exports = router
+module.exports = router;

@@ -34,4 +34,4 @@ MovieUser.init(
     }
 )
 
-module.exports = MovieUser
+module.exports = MovieUser;
