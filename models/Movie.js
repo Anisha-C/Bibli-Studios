@@ -31,4 +31,4 @@ Movie.init(
     }
 )
 
-module.exports = Movie
+module.exports = Movie;

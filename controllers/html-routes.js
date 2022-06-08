@@ -22,11 +22,11 @@ router.get('/dashboard', checkLoggedIn, (req, res) => {
             'name',
             'year',
             'genre'
-            [sequelize.literal('SELECT COUNT(*) FROME movie_user WHERE movie.id = movie_user.movie_id'), 'like_count']
         ]
     }).then(movieQuery => {
+        console.log(movieQuery);
         const movies = movieQuery.map(movie => movie.get({ plain: true }));
-        res.render('dashboard', { movies, loggedIn: true });
+        res.render('dashboard');
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -55,4 +55,4 @@ router.get('/movie/:id', (req, res) => {
     })
 });
 
-module.exports = router
+module.exports = router;
