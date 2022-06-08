@@ -21,7 +21,7 @@ router.get('/dashboard', checkLoggedIn, (req, res) => {
         attributes: [
             'name',
             'year',
-            'genre'
+            'link'
         ]
     }).then(movieQuery => {
         console.log(movieQuery);

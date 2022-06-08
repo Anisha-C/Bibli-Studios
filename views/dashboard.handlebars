@@ -1,19 +1,21 @@
 <div>
-    <div>
-        <div>
-            <input type="text">
-            <button id="search" class="btn btn-primary">Search</button>
-        </div>
-
-        <div>
-            Add movie
-        </div>
-
-    </div>
+<form class="movie-form">
+  <div>
+    <label for="add-movie">Add Movie:</label>
+    <input type="text" id="add-movie" />
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Add Movie</button>
+  </div>
+</form>
     {{#if movies.length}}
     <div class="container">
+        <h2>All Movies</h2>
         {{#each movies as |movie|}}
         {{> movies movie}}
+        {{/each}}
     </div>
     {{/if}}
 </div>
+
+<script src="/js/addMovie.js"></script>
