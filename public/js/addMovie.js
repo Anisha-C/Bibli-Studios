@@ -1,11 +1,11 @@
-const newMovieName = document.querySelector('#add-movie').value.trim();
 
 async function movieFormHandler(event) {
     event.preventDefault();
-
-    if (movieName) {
+    const name = document.querySelector('#add-movie').value.trim();
+    console.log(name);
+    if (name) {
         const response = await fetch('/api/movies', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 name
             }),

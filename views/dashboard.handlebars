@@ -1,22 +1,21 @@
 <div>
-    <div>
-        <div>
-            <input type="text">
-            <button id="search" class="btn btn-primary">Search</button>
-        </div>
-
-        <div>
-            Add movie
-        </div>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">WATCH</a>
+<form class="movie-form">
+  <div>
+    <label for="add-movie">Add Movie:</label>
+    <input type="text" id="add-movie" />
   </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Add Movie</button>
+  </div>
+</form>
+    {{#if movies.length}}
+    <div class="container">
+        <h2>All Movies</h2>
+        {{#each movies as |movie|}}
+        {{> movies movie}}
+        {{/each}}
+    </div>
+    {{/if}}
 </div>
 
-
-</div>
+<script src="/js/addMovie.js"></script>

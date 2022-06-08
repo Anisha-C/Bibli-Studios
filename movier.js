@@ -1,5 +1,5 @@
 const movier = require('movier');
 
-movier.searchTitleByName('interstellar').then(element => {
-    console.log(element);
+movier.searchTitleByName('cop out').then(element => {
+    console.log(element[0]);
 })
