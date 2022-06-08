@@ -18,14 +18,16 @@
     
   }
 
-  /* .container {
+  .card {
     width: 100%;
     min-height: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-  } */
+    /*flex-direction: column-reverse;*/
+    align-items: flex-end;
+  } 
+
 
   header {    
     border-bottom: 1px solid #ccc;
