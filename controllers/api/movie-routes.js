@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const { Movie, MovieUser } = require("../../models")
 const checkLoggedIn = require('../../utils/checkLoggedIn');
+const movier = require('movier');
 
 // router.get("/", (req, res) => {
 //     Movie.findAll()
@@ -16,7 +17,7 @@ const checkLoggedIn = require('../../utils/checkLoggedIn');
 // get results based on filter
 router.get("/name", (req, res) => {
     Movie.findAll({
-        attributes: ['name', 'year', 'genre'],
+        attributes: ['name', 'year', 'link'],
         where: {
             name : req.body.name
         }
@@ -30,11 +31,11 @@ router.get("/name", (req, res) => {
     })
   });
 
-  router.get("/year/:year", (req, res) => {
+  router.get("/year", (req, res) => {
     Movie.findAll({
-        attributes: ['name', 'year', 'genre'],
+        attributes: ['name', 'year', 'link'],
         where: {
-            year: req.params.year
+            year: req.body.year
         }
     })
     .then(movieData => {
@@ -46,11 +47,11 @@ router.get("/name", (req, res) => {
     })
   });
 
-  router.get("/genre/:genre", (req, res) => {
+  router.get("/genre", (req, res) => {
     Movie.findAll({
-        attributes: ['name', 'year', 'genre'],
+        attributes: ['name', 'year', 'link'],
         where: {
-            genre: req.params.genre
+            genre: req.body.genre
         }
     })
     .then(movieData => {
@@ -63,6 +64,10 @@ router.get("/name", (req, res) => {
   });
 
 router.post("/", checkLoggedIn, (req, res) => {
+    movier(req.name)
+    .then(searchedMovie => {
+      movier.searchTitleByName(searchedMovie)
+    })
     Movie.create(req.body)
     .then(movieData => {
         res.json(movieData);
