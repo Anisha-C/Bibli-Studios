@@ -9,26 +9,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <header>
       <h1>
-        <a class="btn btn-primary" href="/">Bibli Studios</a>
+        <a class="btn" id="biblibtn" href="/">Bibli Studios</a>
+        <a class="btn" id="dashboardbtn" href="/dashboard">Dashboard</a>
       </h1>
+
       <nav>
         {{#if loggedIn}}
-        <button id="logout" class="btn btn-light">Logout</button>
+        <button id="logout" class="btn btn-link">Logout</button>
         {{else}}
-        <a href="/login"><button class="btn btn-primary">Login</button></a>
+        <a href="/login"><button id="loginbtn" class="btn btn-primary">Login</button></a>
         {{/if}}
       </nav>
     </header>
-    <main>
+    <a class="logo">
+      <img src="../images/biblilogo.png" alt="Bibli-Studio Logo" width="200" height="200">
+      </a>
+    <main id="mainm">
       {{{ body }}}
     </main>
-    <footer>
-      Sit Back, Relax and Enjoy!
-    </footer>
+
   </div>
+<footer class="footer">
+      Sit Back, Relax and Enjoy!
+</footer>
 
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
