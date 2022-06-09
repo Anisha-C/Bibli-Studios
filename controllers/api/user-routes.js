@@ -65,6 +65,10 @@ router.post("/login", (req, res) => {
             res.json({ user: userData, message: "You are now logged in!" })
         })
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 })
 
 router.post("/logout", (req, res) => {
