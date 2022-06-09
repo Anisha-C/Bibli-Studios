@@ -1,16 +1,16 @@
 <div>
 <form class="movie-form">
   <div>
-    <label for="add-movie">Add Movie:</label>
+    <label for="add-movie" class="add-movie">Add Movie:</label>
     <input type="text" id="add-movie" />
   </div>
   <div>
-    <button type="submit" class="btn btn-primary">Add Movie</button>
+    <button type="submit" class="btn btn-primary" id="addmovie">Add Movie</button>
   </div>
 </form>
     {{#if movies.length}}
     <div class="container">
-        <h2>All Movies</h2>
+        <h1 id="allmovies">All Movies</h1>
         {{#each movies as |movie|}}
         {{> movies movie}}
         {{/each}}
