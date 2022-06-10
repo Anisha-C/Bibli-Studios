@@ -65,6 +65,10 @@ router.post("/login", (req, res) => {
             res.json({ user: userData, message: "You are now logged in!" })
         })
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 })
 
 router.post("/logout", (req, res) => {
@@ -106,7 +110,7 @@ router.delete("/:id", (req, res) => {
     })
         .then(userData => {
             if (!userData) {
-                res.status(404).json({ message: "No user found with this id" })
+                res.status(404).json({ message: "No user with this ID found." })
                 return
             }
             res.json(userData)
