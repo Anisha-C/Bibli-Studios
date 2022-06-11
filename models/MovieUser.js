@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize")
 const sequelize = require("../config/connection")
 
 class MovieUser extends Model {}
-
+//join table for movie and user
 MovieUser.init(
     {
         id: {

@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const { User, Movie } = require("../../models")
 const bcrypt = require("bcrypt")
-
+//routes for finding, signing up, logging in, updating and deleting users
 router.get("/", (req, res) => {
     User.findAll({
         attributes: { exclude: ["password"] },
