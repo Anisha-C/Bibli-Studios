@@ -1,9 +1,11 @@
-const movieName = document.querySelector('#movie-name').value.trim();
-const movieYear = document.querySelector("#movie-year").value.trim();
-const movieGenre = document.querySelector("#movie-genre").value.trim();
+const name = document.querySelector('#movie-name').value.trim();
+const year = document.querySelector("#movie-year").value.trim();
+const genre = document.querySelector("#movie-genre").value.trim();
 
 async function nameFormHandler(event) {
-    if (movieName) {
+    event.preventDefault();
+
+    if (name) {
         const response = await fetch('/api/movies/name', {
             method: 'get',
             body: JSON.stringify({
@@ -20,7 +22,9 @@ async function nameFormHandler(event) {
 };
 
 async function yearFormHandler(event) {
-    if (movieYear) {
+    event.preventDefault();
+
+    if (year) {
         const response = await fetch('/api/movies/year', {
             method: 'get',
             body: JSON.stringify({
@@ -37,7 +41,9 @@ async function yearFormHandler(event) {
 }
 
 async function genreFormHandler(event) {
-    if (movieGenre) {
+    event.preventDefault();
+
+    if (genre) {
         const response = await fetch('/api/movies/genre', {
             method: 'get',
             body: JSON.stringify({

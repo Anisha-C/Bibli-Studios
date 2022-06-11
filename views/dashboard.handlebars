@@ -1,40 +1,21 @@
 <div>
+<form class="movie-form">
   <div>
-    <div>
-      <input type="text" >
-      <button id="search" class="btn btn-primary">Search</button>
-
-    </div>
-    <br>
-    <div>
-      <input type="text" placeholder="Enter Movie Information">
-      <button id="Name" class="btn btn-primary">Add Movie Title</button>
-
-    </div>
-    <br>
-    <div>
-      <input type="text" placeholder="Enter Movie Information">
-      <button id="Year" class="btn btn-primary">Add Year</button>
-
-    </div>
-    <br>
-    <div>
-      <input type="text" placeholder="Enter Movie Information">
-      <button id="Genre" class="btn btn-primary">Add Genre</button>
-
-    </div>
-    <br>
+    <label for="add-movie" class="add-movie">Add Movie:</label>
+    <input type="text" id="add-movie" />
   </div>
-
-
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-      <a href="#" class="btn btn-primary">WATCH</a>
-    </div>
+  <div>
+    <button type="submit" class="btn btn-primary" id="addmovie">Add Movie</button>
   </div>
-
+</form>
+    {{#if movies.length}}
+    <div class="container">
+        <h1 id="allmovies">All Movies</h1>
+        {{#each movies as |movie|}}
+        {{> movies movie}}
+        {{/each}}
+    </div>
+    {{/if}}
 </div>
+
+<script src="/js/addMovie.js"></script>

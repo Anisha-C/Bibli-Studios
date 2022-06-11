@@ -2,9 +2,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+}
 
-  body, html {
+body,
+html {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -15,91 +16,252 @@
     background-attachment: fixed;
     background-position: 80%;
     z-index: 9999;
-    
-  }
+}
 
-  .card {
+.card {
     width: 100%;
     min-height: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     /*flex-direction: column-reverse;*/
-    align-items: flex-end;
-  } 
+    align-items: baseline;
+    left: -450px;
+    left: -670px;
+}
 
-
-  header {    
+header {
     border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
+}
 
-  }
-  
-  header h1 {
+header h1 {
     font-size: 1em;
-  }
+}
 
-
-  
-  main {
+main {
     flex: 1;
     padding: 2% 4%;
-  }
+}
 
-  .btn-btn-link {
+.btn-btn-link {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #EAEAF6;
+    color: #eaeaf6;
     font-size: 100%;
     font-weight: bold;
-    transition: color .1s;
+    transition: color 0.1s;
     margin-left: 16px;
-  }
+}
 
-  .btn-btn-link:hover {
+.btn-btn-link:hover {
     background: none;
     color: #3486eb;
-  }
+}
 
-  .signup-form {
-    border: 1px solid #EAEA;
+.signup-form {
+    border: 1px solid #eaea;
+    display: block;
+    padding: 7px 20px;
+    color: black;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    top: 10px;
+    width: 50%;
+    height: 155px;
+}
+
+.login-form {
+    border: 1px solid #eaea;
     display: block;
     padding: 7px 15px;
     font-size: 16px;
     color: black;
-    width: 100%;
+    width: 48%;
     margin-bottom: 15px;
     margin-top: 5px;
     border-radius: 10px;
-    background-color: rgba(255,255,255, 0.75);
-  }
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 120px;
+}
 
-  .login-form
-  {
-    border: 1px solid #EAEA;
-    display: block;
-    padding: 7px 15px;
-    font-size: 16px;
-    color: black;
-    width: 100%;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    border-radius: 10px;
-    background-color: rgba(255,255,255, 0.75);
-
-  }
-
-  footer {
+footer {
     border-top: 1px solid #ccc;
     display: flex;
     justify-content: center;
     padding: 1%;
     font-size: 110%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+}
+
+.signupbtn {
+    border: none;
+    color: #3486eb;
+    text-decoration: underline;
+}
+
+.emailine {
+    position: relative;
+    left: 40px;
+}
+
+.passwordline {
+    position: relative;
+    left: 10px;
+}
+
+.passwordbox {
+    position: relative;
+    top: 10px;
+}
+
+.lgnsbmt {
+    border-radius: 0.375rem;
+    background-color: #3486eb;
+    border-color: #3486eb;
+    width: 20%;
+    position: relative;
+    left: 135px;
+    top: 20px;
+    color: #fff;
+}
+
+.sgnupsbmt {
+    border-radius: 0.375rem;
+    background-color: #3486eb;
+    border-color: #3486eb;
+    width: 20%;
+    position: relative;
+    left: 132px;
+    top: 30px;
+    color: #fff;
+}
+
+.lginbtn {
+    border-radius: 0.375rem;
+    background-color: #3486eb;
+    border-color: #3486eb;
+    width: 20%;
+    position: relative;
+    left: 260px;
+    top: 2px;
+    color: #fff;
+}
+.btn {
+    position: relative;
+    top: 5px;
+}
+
+.logo {
+    width: 20;
+    height: 20;
+    padding: 0px;
+    margin: 10px 5px 5px 5px;
+    position: relative;
+    left: -150px;
+    top: -45px;
+}
+.footer {
+    position: relative;
+    bottom: -480px;
+}
+
+#username-signup {
+    position: relative;
+    left: 50px;
+}
+
+#email-signup {
+    position: relative;
+    left: 84px;
+}
+
+#password-signup {
+    position: relative;
+    left: 54px;
+}
+
+#biblibtn {
+    left: 35px;
+    font-weight: bold;
+    background-color: lightskyblue;
+}
+
+#dashboardbtn {
+    position: relative;
+    left: 52px;
+    font-weight: bold;
+    background-color: lightskyblue;
+}
+
+#loginbtn {
+    top: 0px;
+}
+
+#mainm {
+    margin-left: 35%;
+}
+
+.movie-form {
+    margin-left: -60%;
+    top: -50px;
+    position: relative;
+}
+
+#addmovie {
+    position: absolute;
+    left: 310px;
+    top: 1px;
+}
+#allmovies {
+    font-family: cursive;
+    font-size: 450%;
+    text-decoration-line: underline;
+}
+
+.add-movie {
+    font-size: x-large;
+}
+
+.h1center {
+    margin-left: -50%;
+    top: -50px;
+    position: relative;
+}
+
+.h4center {
+    margin-left: -50%;
+    top: -50px;
+    position: relative;
+}
+
+.h2center {
+    margin-left: -50%;
+    top: -50px;
+    position: relative;
+}
+.h6center {
+    margin-left: -15%;
+    top: -81px;
+    position: relative;
+}
+
+.emailsbmt {
+    position: relative;
+    top: 10px;
+}
+
+.passwordsbm {
+    position: relative;
+    top: 20px;
+}
