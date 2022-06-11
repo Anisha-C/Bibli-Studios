@@ -59,8 +59,8 @@ router.post("/login", (req, res) => {
         }
 
         req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
             req.session.loggedIn = true;
         
             res.json({ user: userData, message: 'You are now logged in!' });
@@ -119,4 +119,4 @@ router.delete('/:id', (req, res) => {
       });
   });
   
-module.exports = router
+module.exports = router;
