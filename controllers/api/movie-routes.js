@@ -2,7 +2,7 @@ const router = require("express").Router()
 const { Movie, MovieUser } = require("../../models")
 const checkLoggedIn = require('../../utils/checkLoggedIn');
 const movier = require('movier');
-
+//get all movies
 router.get("/", (req, res) => {
     Movie.findAll()
         .then(movieData => {
@@ -62,7 +62,7 @@ router.get("/name", (req, res) => {
       res.status(500).json(err);
     })
   });
-
+//calls movier package then uses returned obj to create movie in DB
 router.post("/", (req, res) => {
       movier.searchTitleByName(req.body.name)
       .then(searchedMovie => {
@@ -87,7 +87,7 @@ router.post("/", (req, res) => {
          res.status(500).json(err);
        });
 });
-
+//like route for linking user to movie
 router.put('/like', checkLoggedIn, (req, res) => {
   MovieUser.create({
     user_id: req.session.user_id,

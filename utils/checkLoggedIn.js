@@ -5,6 +5,8 @@ const checkLoggedIn = (req, res, next) => {
       next();
     }
   };
+
+  //all js files attempt to use best practices by describing function in the name of the file
   
   module.exports = checkLoggedIn;
   

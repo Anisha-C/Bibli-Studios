@@ -1,7 +1,7 @@
 const User = require("./User")
 const Movie = require("./Movie")
 const MovieUser = require("./MovieUser")
-
+//defines associations/joins in sequlize to be used in controller routes
 User.belongsToMany(Movie, {
     through: MovieUser,
 
